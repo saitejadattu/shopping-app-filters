@@ -1,0 +1,37 @@
+.product-list-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+    text-align: center;      
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.product-image {
+  height: 300px;
+  width: 200px;
+  object-fit: contain;
+  display: block;
+}
+.sign-text {
+  text-decoration: underline;
+  color: #888792;
+}
+.heart-png-text {
+  color: #888792;
+  font-size: 14px;
+}
+.heart-and-text-container {
+  display: flex;
+}
+.text {
+    font-size: 16px;
+    text-align: center;
+    white-space: nowrap;       /* Prevents breaking into multiple lines */
+    overflow: hidden;          /* Hides the overflow */
+    text-overflow: ellipsis;   /* Shows "..." for overflow */
+    width: 100%;
+    max-width: 300px;          /* Match your image width */
+    margin: 0 auto; 
+}

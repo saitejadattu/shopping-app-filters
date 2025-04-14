@@ -1,0 +1,176 @@
+.home-container {
+    min-height: 100vh;
+    width: 100dvw;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-text-container {
+    text-align: center;
+}
+
+.home-discover-heading {
+    font-family: "Simplon Norm";
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 72px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.home-lorem-para {
+    font-family: "Simplon Norm";
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 40px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+}
+
+.product-and-filter-container {
+    width: 90%;
+    align-self: center;
+}
+
+.filter-hide-headinh {
+    font-family: "Adobe Caslon Pro";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 40px;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: #888792;
+}
+
+.filters-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter-section-container {
+    display: flex;
+}
+
+.hide-filter-container {
+    display: flex;
+    justify-content: center;
+    margin-left: 100px;
+    cursor: pointer;
+}
+
+.less-than-png {
+    align-self: center;
+    height: 15px;
+    font-size: 20px;
+}
+
+.filter-hide-heading {
+    text-decoration: underline;
+    color: #888792;
+
+}
+
+.filter-select-option-container {
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+.customizble-container {
+    padding-right: 10px;
+    display: flex;
+}
+
+.customizble-checkbox-container {
+    display: flex;
+    align-self: center;
+}
+
+.customizble-checkbox {
+    align-self: center;
+    height: 25px;
+    width: 25px;
+}
+
+.text-button {
+    border: 0px;
+    background-color: transparent;
+}
+
+.primary-button {
+    border: 0px;
+    border-radius: 5px;
+    background-color: rgb(52, 52, 236);
+    padding: 10px;
+    color: #ffff;
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-button {
+    display: block;
+    font-family: "Simplon Norm";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.6px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #252020;
+}
+
+.dropdown-alignment {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.unselect-button {
+    text-decoration: underline;
+    color: #BFC8CD;
+}
+
+.all-text-para {
+    font-family: "Simplon Norm";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.6px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    padding-left: 4px;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.filter-unordered-container {
+    list-style-type: none;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+ul[name="filter-unordered-container"] li {
+    margin-bottom: 10px;
+}
+
+ul[name="filter-unordered-container"] li label {
+    font-size: 20px;
+}
+
+ul[name="filter-unordered-container"] li input {
+    height: 18px;
+    width: 18px;
+}
+
+.product-unordered-container {
+    list-style-type: none;
+    margin-left: 0px;
+    padding-left: 0px;
+    display: flex;
+    flex-wrap: wrap;
+}

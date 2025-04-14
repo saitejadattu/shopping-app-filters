@@ -1,0 +1,107 @@
+.footer-bg-container {
+    background-color: black;
+    color: #ffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.footer-container{
+    width: 80%;
+    align-self: center;
+}
+.footer-input-element {
+    width: Fixed (384px)px;
+    height: Fixed (47px)px;
+    padding: 14px 24px 14px 24px;
+    gap: 8px;
+    opacity: 0px;
+
+}
+
+.footer-input-button {
+    width: fixed (184px)px;
+    height: fixed (48px)px;
+    left: 400px;
+    gap: 0px;
+    border-radius: 5px 0px 0px 0px;
+    border: 1.14px 0px 0px 0px;
+    opacity: 0.3px;
+    border: 0px;
+    padding: 15px;
+}
+.contact-and-info-container{
+    display: flex;
+    justify-content: space-between;
+}
+.footer-american-png{
+    display: flex;
+}
+.foooter-about-container{
+    display: flex;
+    justify-content: space-between;
+}
+.american-png{
+    align-self: center;
+    margin-right: 10px;
+}
+.insta-and-linkedin-pngs{
+    display: flex;
+
+}
+.insta-png{
+    width: 55px;
+    height: 55px;
+    border-radius: 35px;
+    border: 2px solid #fff;
+    background-color: black;
+    padding: 10px;
+}
+.footer-company-logo{
+    width: 80px;
+    height: 40px;
+    background-color: #fff;
+    display: flex;
+    margin: 10px;
+}
+.company-png{
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    padding-left: 5px;
+}
+.footer-company-logo-container{
+    display: flex;
+
+}
+.amex-div{
+    background-color: #006FCF;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    padding-left: 5px;
+    padding-left: 5px;
+    border: 2px solid #fff;
+}
+.amex{
+    height: 19px;
+}
+.phonepay-div{
+    background-color: #5A31F4;
+    height: 40px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    padding-left: 5px;
+    border: 2px solid #fff;
+}
+.footer-input-button{
+    background-color: rgb(54, 54, 54);
+    color: #ffff;
+    margin-left: 20px;
+}
