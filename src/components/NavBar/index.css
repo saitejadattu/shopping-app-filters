@@ -97,3 +97,9 @@ select {
     flex-grow: 1;
     
  }
+ @media (max-width: 768px) {
+    .menu-info-un-ordered-container {
+      display: none;
+    }
+  }
+  
