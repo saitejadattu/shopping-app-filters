@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import NavBar from "../NavBar";
 import "./index.css";
 import FilterList from "../FilterList";
 import { PiGreaterThan, PiLessThanThin } from "react-icons/pi";
 import Product from "../Product";
 import Footer from "../Footer";
-
+import cookie from "js-cookie";
+import { Navigate } from "react-router-dom";
 const productList = [
   {
     id: 1,
@@ -274,8 +275,15 @@ const productList = [
     },
   },
 ];
+
 const Home = () => {
   const [isFilter, setIsFilter] = useState(true);
+
+  const jwt = cookie.get("jwtToken");
+  console.log(jwt)
+  if (!jwt) {
+    return <Navigate to="/login" />;
+  }
   return (
     <div className="home-container">
       <NavBar />
