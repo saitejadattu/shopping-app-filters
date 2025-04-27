@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
+import Cookie from "js-cookie";
 const NavBar = () => {
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
   const handleLogout = () => {
+    Cookie.remove("jwtToken");
     navigate("/login");
     setShowPopup(false);
   };

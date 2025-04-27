@@ -7,6 +7,7 @@ import Product from "../Product";
 import Footer from "../Footer";
 import cookie from "js-cookie";
 import { Navigate } from "react-router-dom";
+import ErrorBoundary from "../ErrorHandler";
 const productList = [
   {
     id: 1,
@@ -280,7 +281,7 @@ const Home = () => {
   const [isFilter, setIsFilter] = useState(true);
 
   const jwt = cookie.get("jwtToken");
-  console.log(jwt)
+  console.log(jwt);
   if (!jwt) {
     return <Navigate to="/login" />;
   }
@@ -330,7 +331,9 @@ const Home = () => {
           </div>
           <ul className="product-unordered-container">
             {productList.map((eachProduct) => (
-              <Product key={eachProduct.id} product={eachProduct} />
+              <ErrorBoundary>
+                <Product key={eachProduct.id} product={eachProduct} />
+              </ErrorBoundary>
             ))}
           </ul>
         </div>
