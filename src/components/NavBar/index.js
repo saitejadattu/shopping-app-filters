@@ -6,8 +6,8 @@ const NavBar = () => {
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
   const handleLogout = () => {
-    Cookie.remove("jwtToken");
     navigate("/login");
+    Cookie.remove("jwtToken");
     setShowPopup(false);
   };
   return (

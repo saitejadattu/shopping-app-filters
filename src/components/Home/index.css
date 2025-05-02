@@ -271,3 +271,15 @@ ul[name="filter-unordered-container"] li input {
         align-items: center;
     }
 }
+.loading-view{
+    height: 100vh;
+    width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading-text{
+    align-self: center;
+    color: #252020;
+    text-align: center;
+}
