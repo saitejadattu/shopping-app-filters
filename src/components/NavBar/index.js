@@ -2,8 +2,24 @@ import React, { useState } from "react";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
 import Cookie from "js-cookie";
-const NavBar = () => {
+const NavBar = ({sendingToHome}) => {
   const [showPopup, setShowPopup] = useState(false);
+  const [showSearchPopup, setSearchShowPopup] = useState(false);
+  const [searchText, setSearchText] = useState("");
+
+  const handleSearchClick = () => {
+    setSearchShowPopup((prev) => !prev);
+  };
+  const handleClose = () => {
+    setSearchShowPopup(false);
+    setSearchText(""); // optional: clear input
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    sendingToHome(searchText);
+    handleClose();
+  };
   const navigate = useNavigate();
   const handleLogout = () => {
     navigate("/login");
@@ -25,10 +41,12 @@ const NavBar = () => {
 
         <ul className="unordered-list">
           <li>
-            <img
-              src="https://res.cloudinary.com/ddruw0mnk/image/upload/v1733881900/search-normal_qpeiil.png"
-              alt="search"
-            />
+            <button className="empty-button" onClick={handleSearchClick}>
+              <img
+                src="https://res.cloudinary.com/ddruw0mnk/image/upload/v1733881900/search-normal_qpeiil.png"
+                alt="search"
+              />
+            </button>
           </li>
           <li>
             <img
@@ -76,6 +94,33 @@ const NavBar = () => {
                 Logout
               </button>
             </div>
+          </div>
+        </div>
+      )}
+      {showSearchPopup && (
+        <div className="popup-overlay">
+          <div className="popup-box">
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                className="popup-input"
+                placeholder="Type your search..."
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+              />
+              <div className="popup-actions">
+                <button
+                  type="button"
+                  className="popup-button cancel"
+                  onClick={handleClose}
+                >
+                  Cancel
+                </button>
+                <button type="submit" className="popup-button submit">
+                  Go
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}

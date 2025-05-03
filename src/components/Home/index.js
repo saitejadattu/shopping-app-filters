@@ -14,7 +14,7 @@ const Home = () => {
   const [productList, setProductList] = useState([]);
   const [sortedProducts, setSortedProducts] = useState([]);
   const [sortOption, setSortOption] = useState("RECOMMENDED");
-
+  const [searchInput, setSearchInput] = useState("");
   const jwt = cookie.get("jwtToken");
   const fetchData = async () => {
     fetch("https://fakestoreapi.com/products")
@@ -26,7 +26,7 @@ const Home = () => {
   }, []);
   useEffect(() => {
     sortProducts(sortOption);
-  }, [sortOption,productList]);
+  }, [sortOption, productList]);
 
   const sortProducts = (option) => {
     let sortedArray = [...productList];
@@ -56,12 +56,19 @@ const Home = () => {
   const handleSortChange = (e) => {
     setSortOption(e.target.value);
   };
+  const sendingToHome = (data) => {
+    setSearchInput(data);
+  };
+  const filteredProducts = sortedProducts.filter((each) =>
+    each.title.includes(searchInput)
+  );
+  
   if (!jwt) {
     return <Navigate to="/login" />;
   }
   return (
     <div className="home-container">
-      <NavBar />
+      <NavBar sendingToHome={sendingToHome} />
       <div className="home-div-container">
         <div className="main-text-container">
           <h1 className="home-discover-heading">DISCOVER OUR PRODUCTS</h1>
@@ -75,7 +82,7 @@ const Home = () => {
         <hr />
         <div className="filters-container">
           <div className="filter-section-container">
-            <p>3231 ITEMS</p>
+            <p>{filteredProducts.length} ITEMS</p>
             <div
               className="hide-filter-container"
               onClick={() => setIsFilter((prevState) => !prevState)}
@@ -108,7 +115,7 @@ const Home = () => {
             {isFilter && <FilterList />}
           </div>
           <ul className="product-unordered-container">
-            {(!sortedProducts ? productList : sortedProducts).map(
+            {(!filteredProducts ? productList : filteredProducts).map(
               (eachProduct, index) => (
                 <ErrorBoundary key={index}>
                   <Product product={eachProduct} />
