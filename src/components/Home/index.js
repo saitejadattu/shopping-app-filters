@@ -16,7 +16,6 @@ const Home = () => {
   const [sortOption, setSortOption] = useState("RECOMMENDED");
 
   const jwt = cookie.get("jwtToken");
-  // console.log(jwt);
   const fetchData = async () => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
@@ -27,11 +26,14 @@ const Home = () => {
   }, []);
   useEffect(() => {
     sortProducts(sortOption);
-  }, [sortOption, sortedProducts]);
-  
+  }, [sortOption,productList]);
+
   const sortProducts = (option) => {
     let sortedArray = [...productList];
     switch (option) {
+      case "RECOMMENDED":
+        sortedArray = productList;
+        break;
       case "NEWEST FIRST":
         sortedArray.sort((a, b) => a.price - b.price);
         break;
@@ -44,8 +46,6 @@ const Home = () => {
       case "PRICE: LOW TO HIGH":
         sortedArray.sort((a, b) => a.price - b.price);
         break;
-      case "RECOMMENDED":
-        break;
       default:
         sortedArray = productList;
         break;
@@ -55,9 +55,7 @@ const Home = () => {
 
   const handleSortChange = (e) => {
     setSortOption(e.target.value);
-    console.log(e.target.value);
   };
-  console.log(sortedProducts);
   if (!jwt) {
     return <Navigate to="/login" />;
   }
@@ -110,12 +108,13 @@ const Home = () => {
             {isFilter && <FilterList />}
           </div>
           <ul className="product-unordered-container">
-            {sortedProducts &&
-              sortedProducts?.map((eachProduct, index) => (
-                <ErrorBoundary>
-                  <Product key={index} product={eachProduct} />
+            {(!sortedProducts ? productList : sortedProducts).map(
+              (eachProduct, index) => (
+                <ErrorBoundary key={index}>
+                  <Product product={eachProduct} />
                 </ErrorBoundary>
-              ))}
+              )
+            )}
           </ul>
         </div>
       </div>
